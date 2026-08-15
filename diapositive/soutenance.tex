@@ -1,4 +1,4 @@
-\documentclass[9pt]{beamer}
+\documentclass[11pt]{beamer}
 \mode<presentation>
 
 % Theme choice:
@@ -278,42 +278,34 @@ M. SAMUEL DIKONGUE}
 \end{tabularx}
 \end{frame}
 
-\begin{frame}{MISE EN PLACE DE LA SOLUTION}
-\begin{block}{Architecture trois-tiers découplée}
-\end{block}
+\begin{frame}{Architecture trois-tiers découplée}
 \begin{figure}[htp]
  \centering
-  \includegraphics[width=0.72\textwidth]{architecture.png}
+  \includegraphics[height=0.80\textheight,keepaspectratio]{architecture.png}
   \label{fig:archi}
 \end{figure}
 \end{frame}
 
-\begin{frame}{MISE EN PLACE DE LA SOLUTION}
-\begin{block}{Diagramme de cas d'utilisation}
-\end{block}
+\begin{frame}{Diagramme de cas d'utilisation}
 \begin{figure}[htp]
  \centering
-  \includegraphics[width=0.70\textwidth]{usecase.png}
+  \includegraphics[height=0.80\textheight,keepaspectratio]{usecase.png}
   \label{fig:usecase}
 \end{figure}
 \end{frame}
 
-\begin{frame}{MISE EN PLACE DE LA SOLUTION}
-\begin{block}{Modèle de données : huit entités}
-\end{block}
+\begin{frame}{Modèle de données : huit entités}
 \begin{figure}[htp]
  \centering
-  \includegraphics[width=0.78\textwidth]{classe.png}
+  \includegraphics[height=0.80\textheight,keepaspectratio]{classe.png}
   \label{fig:classe}
 \end{figure}
 \end{frame}
 
-\begin{frame}{MISE EN PLACE DE LA SOLUTION}
-\begin{block}{Diagramme de séquence : dépôt et procès-verbal}
-\end{block}
+\begin{frame}{Diagramme de séquence : dépôt et procès-verbal}
 \begin{figure}[htp]
  \centering
-  \includegraphics[width=0.70\textwidth]{sequence.png}
+  \includegraphics[height=0.80\textheight,keepaspectratio]{sequence.png}
   \label{fig:sequence}
 \end{figure}
 \end{frame}
@@ -408,10 +400,10 @@ M. SAMUEL DIKONGUE}
     \begin{column}{0.45\textwidth}
         \begin{block}{Ce qui a tranché}
             \begin{itemize}
-                \item \textbf{Flask} : continuité de langage avec l'IA, le client Groq s'intègre sans passerelle;
-                \item \textbf{Llama 3.1} : poids ouverts, donc réhébergeable sur infrastructure maîtrisée;
-                \item \textbf{Supabase Storage} : pièces jointes en bucket privé, hors de la base;
-                \item \textbf{PostgreSQL} : types énumérés natifs pour contraindre le cycle de vie.
+                \item \textbf{Flask} :  Offre un cadre léger, flexible et rapide pour développer des applications web ou des API en Python. L'associer à l'API de Grok (l'intelligence artificielle de xAI) permet de créer des services intelligents et connectés en temps réel.;
+                \item \textbf{Groq} : gratuit et très rapide;
+                \item \textbf{PostgreSQL} : les \emph{données} --- comptes, dossiers, historique;
+                \item \textbf{Supabase Storage} : les \emph{fichiers} --- pièces jointes, procès-verbaux, convocations.
             \end{itemize}
         \end{block}
     \end{column}
@@ -430,27 +422,6 @@ M. SAMUEL DIKONGUE}
   \includegraphics[width=0.45\textwidth]{demo_icon.png}
   \label{fig:demo}
 \end{figure}
-\end{frame}
-
-\begin{frame}{RESULTATS}
-\begin{block}{Résultats relevés en recette}
-\end{block}
-\small
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3cm}@{}}
-  \toprule
-  \textbf{Indicateur} & \textbf{Avant} & \textbf{Après} \\
-  \midrule
-  Déplacement pour déposer & Obligatoire & Supprimé \\
-  Saisie de la déclaration & Au guichet & Moins de 8 min en ligne \\
-  Commissariat compétent & Oralement au guichet & Automatique \\
-  Mise en forme d'un PV & Manuscrite & Proposition en moins de 2 min \\
-  Traçabilité des actes & Registre papier & 100 \% horodatée \\
-  Suivi par le plaignant & Déplacement & En ligne \\
-  Convocation du mis en cause & À la charge de la victime & Notifiée par la plateforme \\
-  \midrule
-  \textbf{Délai dépôt à cotation} & \textbf{Non mesurable} & \textbf{Horodaté, donc mesurable} \\
-  \bottomrule
-\end{tabularx}
 \end{frame}
 
 \begin{frame}{RESULTATS}
@@ -487,14 +458,12 @@ M. SAMUEL DIKONGUE}
 
     \item \textbf{Objectif : }
     \begin{itemize}[label=$\bullet$, font=\LARGE \color{green}]
-    \item Il était question pour nous de dématérialiser le dépôt et le traitement des plaintes citoyennes, jusqu'alors entièrement manuels.
+    \item Dématérialiser le dépôt et le traitement des plaintes citoyennes.
     \end{itemize}
     \item \textbf{Solution : }
         \begin{itemize}[label=$\bullet$, font=\LARGE \color{green}]
-  \item Dépôt guidé en ligne, sans déplacement;
-  \item Rattachement automatique au commissariat compétent;
-  \item Cotation, instruction et convocations outillées;
-  \item Procès-verbal assisté, validé par l'officier de police judiciaire;
+  \item Dépôt en ligne sans déplacement, rattachement automatique au commissariat;
+  \item Cotation, instruction, convocations et procès-verbal assisté;
   \item Traçabilité horodatée de toutes les transitions.
   \end{itemize}
   \item \textbf{Limites : }
@@ -504,8 +473,7 @@ M. SAMUEL DIKONGUE}
   \end{itemize}
 \item \textbf{Perspectives : }
     \begin{itemize}[label=$\bullet$, font=\LARGE \color{green}]
-  \item Transcription vocale côté serveur, ouvrant aux langues nationales;
-  \item Réhébergement du modèle sur infrastructure maîtrisée;
+  \item Transcription côté serveur, ouvrant aux langues nationales;
   \item Transmission dématérialisée des dossiers au parquet.
 \end{itemize}
      \end{itemize}
