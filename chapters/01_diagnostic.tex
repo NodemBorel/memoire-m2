@@ -145,24 +145,13 @@ Il est notable que trois de ces quatre difficultés — les points 1 à 3 — co
 
 Avant d'envisager un développement, il fallait vérifier qu'aucune solution existante ne répondait déjà au besoin. Trois dispositifs comparables ont été examinés.
 
-\begin{table}[H]
-    \centering
-    \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
-    \hline
-    \textbf{Dispositif} & \textbf{Périmètre couvert} & \textbf{Ce qu'il ne couvre pas} \\
-    \hline
-    \textbf{France} — plainte en ligne et \textit{Visioplainte}, généralisées en octobre 2024~\cite{france:visioplainte} & Dépôt à distance, y compris par visioconférence avec un officier, avec envoi puis signature du procès-verbal sans déplacement & Réservé aux \textbf{atteintes aux biens dont l'auteur est inconnu} ; les faits contre les personnes et les auteurs identifiés restent exclus \\
-    \hline
-    \textbf{Sénégal} — Plateforme de signalement des infractions cybercriminelles (PSIC), lancée en février 2026~\cite{senegal:psic} & Signalement en ligne sécurisé et confidentiel des cyberinfractions & Périmètre \textbf{thématique} : escroquerie en ligne, cyberharcèlement, usurpation d'identité. Aucune gestion de l'enquête en aval \\
-    \hline
-    \textbf{Cameroun} — projet DGSN / GIZ engagé en 2022~\cite{cameroun:dgsngiz} & Traitement automatisé des plaintes des usagers, en particulier les plaintes \textbf{dirigées contre la police} & Objet distinct : il s'agit du contrôle interne, non du dépôt d'une plainte pénale par une victime \\
-    \hline
-    \end{tabularx}
-    \caption{Dispositifs numériques comparables et leur périmètre}
-    \label{tab:benchmark}
-\end{table}
+En \textbf{France}, le dispositif de pré-plainte a laissé place, en octobre 2024, à une \textbf{plainte en ligne} de plein exercice, doublée d'un service de visioconférence dénommé \textit{Visioplainte}~\cite{france:visioplainte}. Le plaignant y dépose sa plainte sans se déplacer, s'entretient à distance avec un officier, puis reçoit le procès-verbal par voie électronique et le confirme avant signature par l'agent. Ce dispositif demeure toutefois réservé aux \textbf{atteintes aux biens dont l'auteur est inconnu} : les faits commis contre les personnes, comme ceux dont l'auteur est identifié, en restent exclus, au motif qu'ils peuvent justifier une intervention immédiate.
 
-Trois enseignements se dégagent. D'abord, les dispositifs existants sont \textbf{restreints}, soit par la nature des faits — atteintes aux biens, cyberinfractions —, soit par la qualité de l'auteur, qui doit demeurer inconnu. Ensuite, ils s'arrêtent au \textbf{dépôt} : aucun ne prend en charge la suite de la chaîne, c'est-à-dire la cotation à un enquêteur, la conduite des auditions, la rédaction des procès-verbaux et les convocations. Enfin, l'initiative camerounaise recensée poursuit un \textbf{objet différent} — recueillir les plaintes des usagers contre la police, dans une logique de contrôle interne — et ne se substitue donc pas au dépôt de plainte pénale. Le numéro vert 1500 qui la précédait était par ailleurs jugé peu efficace par le public.
+Au \textbf{Sénégal}, la police nationale a mis en service en février 2026 une \textbf{plateforme de signalement des infractions cybercriminelles}~\cite{senegal:psic}. Elle permet de dénoncer en ligne, de manière sécurisée et confidentielle, les escroqueries commises sur internet, le cyberharcèlement, l'usurpation d'identité ou les atteintes aux données personnelles. Son périmètre est donc \textbf{thématique} : il ne couvre que la délinquance numérique, et le dispositif s'arrête au signalement, sans prendre en charge l'instruction qui doit suivre.
+
+Au \textbf{Cameroun} enfin, la Délégation générale à la sûreté nationale a engagé en 2022, avec l'appui de la coopération allemande, un projet de plateforme numérique destinée au traitement automatisé des plaintes des usagers~\cite{cameroun:dgsngiz}. Son objet est cependant \textbf{distinct du nôtre} : il s'agit de recueillir les plaintes \emph{dirigées contre la police}, dans une logique de contrôle interne, et non de permettre à une victime de déposer une plainte pénale. Le numéro vert qui remplissait auparavant cette fonction était du reste jugé peu efficace par le public.
+
+Deux enseignements se dégagent de cette comparaison. D'abord, les dispositifs existants sont \textbf{restreints} : soit par la nature des faits — atteintes aux biens, cyberinfractions —, soit par la qualité de l'auteur, qui doit demeurer inconnu. Ensuite, ils s'arrêtent au \textbf{dépôt} ou au signalement : aucun ne prend en charge la suite de la chaîne, c'est-à-dire la cotation à un enquêteur, la conduite des auditions, la rédaction des procès-verbaux et l'émission des convocations.
 
 Aucun de ces dispositifs ne traite les difficultés relevées lors de notre audit : un plaignant qui ne sait ni lire ni écrire, une convocation remise par la victime elle-même, une cotation sans procédure formalisée. Ces constats justifient le développement d'une solution propre plutôt que la reprise d'un outil existant.
 

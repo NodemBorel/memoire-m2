@@ -1,0 +1,77 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Dédicace}{i}{chapter*.2}%
+\contentsline {chapter}{Remerciements}{ii}{chapter*.4}%
+\contentsline {chapter}{Résumé}{iii}{chapter*.6}%
+\contentsline {chapter}{Abstract}{iv}{chapter*.8}%
+\contentsline {chapter}{Liste des Sigles et Abréviations}{x}{chapter*.13}%
+\contentsline {chapter}{Introduction Générale}{1}{chapter*.15}%
+\contentsline {section}{Contexte}{1}{section*.16}%
+\contentsline {section}{Problématique}{1}{section*.17}%
+\contentsline {section}{Question de recherche}{2}{section*.18}%
+\contentsline {section}{Objectifs}{2}{section*.19}%
+\contentsline {section}{Méthodologie}{3}{section*.21}%
+\contentsline {section}{Plan du mémoire}{3}{section*.22}%
+\contentsline {chapter}{\numberline {1}Diagnostic et Analyse de l'Existant}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Présentation de l'entreprise KLIVAR}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Historique et positionnement}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Localisation et implantation}{5}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Mission et vision}{6}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Domaines d'activité}{6}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}Organigramme}{6}{subsection.1.1.5}%
+\contentsline {section}{\numberline {1.2}Analyse de la situation existante}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Déroulement du stage et missions effectuées}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Description de la procédure manuelle actuelle}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Difficultés et limites identifiées lors de l'audit}{10}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Ce qui existe ailleurs}{11}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Analyse SWOT liée à la mission}{12}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Identification du besoin}{13}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Pourquoi les méthodes actuelles ne suffisent plus}{13}{subsection.1.5.1}%
+\contentsline {chapter}{\numberline {2}Méthodologie et Réalisation des Missions}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Démarche adoptée}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Méthodologie de gestion de projet : Agile / Scrum}{15}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Choix des outils et technologies}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Frontend : React.js}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Backend : Flask}{17}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Persistance : PostgreSQL et Supabase Storage}{18}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Intelligence Artificielle : Llama 3.1 servi par Groq}{18}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Environnement de développement}{18}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Conception et architecture de la solution}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Architecture fonctionnelle}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Architecture de conception}{19}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Architecture d'implémentation}{20}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Conception UML}{21}{subsection.2.3.4}%
+\contentsline {subsubsection}{Diagramme de cas d'utilisation}{21}{section*.41}%
+\contentsline {subsubsection}{Diagramme de classes}{22}{section*.43}%
+\contentsline {subsubsection}{Diagramme de séquence}{23}{section*.45}%
+\contentsline {section}{\numberline {2.4}Mise en œuvre de la solution}{24}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Parcours de dépôt du plaignant (5 étapes)}{24}{subsection.2.4.1}%
+\contentsline {paragraph}{Analyse en direct de la déclaration.}{25}{section*.47}%
+\contentsline {paragraph}{Choix retenu pour la compétence territoriale.}{25}{section*.48}%
+\contentsline {subsection}{\numberline {2.4.2}Du dépôt à la clôture : le cycle de vie du dossier}{25}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Modèle de données}{26}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Sécurité et contrôle d'accès}{27}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Tests effectués}{27}{subsection.2.4.5}%
+\contentsline {chapter}{\numberline {3}Bilan, Résultats et Préconisations}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Résultats — Interfaces de la plateforme}{30}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Tableau de bord du commissaire}{30}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Dépôt d'une plainte}{31}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Instruction du dossier par l'enquêteur}{32}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Gestion des dossiers cotés}{32}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Notifications}{33}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Historique et traçabilité}{34}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Statistiques et pilotage}{35}{subsection.3.1.7}%
+\contentsline {section}{\numberline {3.2}Analyse des résultats}{35}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Méthode de mesure}{35}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Portée et limites des mesures}{37}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Apports pour l'organisation}{37}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Préconisations}{37}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Bilan critique de la mission}{38}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Ce qui a fonctionné}{38}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Ce qui a posé des défis}{38}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Enseignements tirés}{39}{subsection.3.5.3}%
+\contentsline {chapter}{Conclusion Générale}{40}{chapter*.59}%
+\contentsline {section}{Synthèse des missions}{40}{section*.60}%
+\contentsline {section}{Bilan personnel}{40}{section*.61}%
+\contentsline {section}{Perspectives d'évolution}{41}{section*.62}%
+\contentsline {chapter}{\numberline {A}Annexes}{42}{appendix.A}%
+\contentsline {chapter}{Bibliographie}{52}{section*.81}%
