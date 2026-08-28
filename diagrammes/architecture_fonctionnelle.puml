@@ -1,0 +1,46 @@
+@startuml architecture_fonctionnelle
+' ==============================================================
+'  PlainteCam — Architecture globale des besoins fonctionnels
+'  Vue destinée à faire saisir d'un seul regard ce que fait la
+'  plateforme. Aucune référence technologique n'y figure, et
+'  l'acteur responsable est nommé dans chaque bloc.
+' ==============================================================
+
+skinparam dpi 150
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 13
+skinparam ArrowColor #24405E
+skinparam ArrowThickness 1.6
+skinparam nodesep 20
+skinparam ranksep 35
+
+skinparam rectangle {
+  BorderColor #24405E
+  BorderThickness 1.5
+  FontColor #14243A
+  RoundCorner 12
+}
+
+left to right direction
+
+rectangle "**1. DÉPOSER**\n<size:10>//Plaignant//</size>\n<size:11>Déclaration guidée en 5 étapes</size>\n<size:11>Assistance à la complétude</size>" as F1 #EDF2FA
+rectangle "**2. ORIENTER**\n<size:10>//Automatique//</size>\n<size:11>Commissariat</size>\n<size:11>territorialement compétent</size>" as F2 #EDF2FA
+rectangle "**3. COTER**\n<size:10>//Commissaire//</size>\n<size:11>Désignation de l'enquêteur</size>\n<size:11>et de la priorité</size>" as F3 #FFF7E8
+rectangle "**4. INSTRUIRE**\n<size:10>//Enquêteur//</size>\n<size:11>Auditions, procès-verbaux</size>\n<size:11>Convocations</size>" as F4 #FFF7E8
+rectangle "**5. CLÔTURER**\n<size:10>//Enquêteur//</size>\n<size:11>Décision, transmission</size>\n<size:11>au parquet ou clôture</size>" as F5 #FFF7E8
+
+F1 --> F2
+F2 --> F3
+F3 --> F4
+F4 --> F5
+
+rectangle "FONCTIONS TRANSVERSES" as T #F7F9FC {
+  rectangle "**SUIVRE**\n<size:10>//Plaignant//</size>\n<size:11>État du dossier en ligne, notifications</size>" as F6 #F1FBF4
+  rectangle "**TRACER ET PILOTER**\n<size:10>//Commissaire//</size>\n<size:11>Journal d'audit horodaté, tableau de bord</size>" as F7 #F1FBF4
+}
+
+
+
+@enduml

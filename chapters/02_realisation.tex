@@ -130,26 +130,63 @@ Le développement s'est effectué sous \textbf{Windows 10}, avec \textbf{Visual 
 
 \section{Conception et architecture de la solution}
 
-\subsection{Architecture globale}
+La conception de PlainteCam est présentée sous trois angles complémentaires, du plus fonctionnel au plus technique : ce que la plateforme fait, comment elle est découpée en modules, puis avec quelles technologies elle est réalisée.
 
-La plateforme PlainteCam suit une architecture \textbf{trois-tiers découplée} : le frontend React.js communique exclusivement avec le backend Flask via des API REST sécurisées par jeton. Le backend orchestre la logique métier, la persistance des données et les appels au service d'IA générative.
+\subsection{Architecture fonctionnelle}
+
+La figure~\ref{fig:archi_fonctionnelle} donne la vue d'ensemble des fonctions de la plateforme. Le cycle de vie d'une plainte s'y lit de gauche à droite en cinq temps, chacun rattaché à l'acteur qui en a la charge : le plaignant \textbf{dépose} sa déclaration, la plateforme \textbf{oriente} le dossier vers le commissariat territorialement compétent, le commissaire le \textbf{cote} à un enquêteur, celui-ci \textbf{instruit} l'affaire puis la \textbf{clôture}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{diagrammes/architecture_fonctionnelle.png}
+    \caption{Architecture fonctionnelle — les grandes fonctions de PlainteCam}
+    \label{fig:archi_fonctionnelle}
+\end{figure}
+
+Deux fonctions échappent à cette séquence parce qu'elles la traversent de bout en bout. Le \textbf{suivi} rend chaque transition visible du plaignant, sans qu'il ait à se déplacer. La \textbf{traçabilité} inscrit ces mêmes transitions au journal d'audit et alimente le tableau de bord du commissaire. Elles ne constituent pas une étape du cycle mais une propriété de l'ensemble, et c'est à ce titre qu'elles figurent à part sur le schéma.
+
+\subsection{Architecture de conception}
+
+La figure~\ref{fig:archi_conception} décompose la solution en modules, indépendamment de toute technologie. Trois ensembles se dégagent autour d'un noyau.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.86\linewidth]{diagrammes/architecture_conception.png}
+    \caption{Architecture de conception — modules et connexions}
+    \label{fig:archi_conception}
+\end{figure}
+
+Les \textbf{modules de saisie} recueillent la déclaration : le parcours guidé, l'analyse qui en déduit le taux de complétude et les questions à poser, et le référentiel territorial qui détermine l'unité compétente. Les \textbf{modules d'instruction} prennent le relais après le dépôt — la cotation, l'étapier qui contraint le cycle de vie, et la rédaction assistée du procès-verbal. Les \textbf{modules transverses} servent les deux précédents : contrôle d'accès, production des documents, traçabilité et notification.
+
+Au centre, le \textbf{dossier de plainte} concentre l'état, les qualifications, les préjudices, les pièces et les intervenants. Tous les modules s'y rattachent, aucun ne dialogue directement avec un autre groupe : ce choix évite qu'une évolution du parcours de saisie n'affecte l'instruction, et réciproquement.
+
+\subsection{Architecture d'implémentation}
+
+La figure~\ref{fig:archi_implementation} traduit cette conception en technologies. La plateforme suit une architecture \textbf{trois-tiers découplée} : le frontend React.js communique exclusivement avec le backend Flask via des API REST sécurisées par jeton. Le backend orchestre la logique métier, la persistance des données et les appels au service d'IA générative.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.78\textwidth]{diagrammes/architecture.png}
-    \caption{Structure technique et organisation}
-    \label{fig:architecture}
+    \caption{Architecture d'implémentation — technologies et communications}
+    \label{fig:archi_implementation}
 \end{figure}
+
+Les échanges portent chacun leur protocole : \textbf{HTTPS} et \textbf{JSON} entre la présentation et le métier, \textbf{SQL} vers PostgreSQL, un \textbf{SDK} vers le dépôt d'objets, et un appel \textbf{HTTPS} vers le service d'inférence. Cette dernière liaison n'existe qu'entre le backend et Groq, jamais depuis le navigateur : c'est ce qui garantit que la clé d'API ne quitte pas le serveur.
 
 \subsection{Conception UML}
 
 \subsubsection{Diagramme de cas d'utilisation}
+
+La figure~\ref{fig:usecase} recense les cas d'utilisation de la plateforme et les répartit entre \textbf{quatre acteurs}. Le \textbf{plaignant} dépose sa plainte, suit l'avancement de son dossier et télécharge son récépissé. Le \textbf{commissaire} cote les dossiers entrants, consulte le tableau de bord de son unité, gère ses agents et accède au journal d'audit. L'\textbf{enquêteur} instruit les dossiers qui lui sont cotés, émet les convocations, dresse les procès-verbaux et fait progresser le statut. L'\textbf{administrateur} n'intervient que sur les comptes et le référentiel des commissariats.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.78\textwidth]{diagrammes/usecase.png}
     \caption{Diagramme de cas d'utilisation — PlainteCam}
     \label{fig:usecase}
 \end{figure}
+
+Deux relations méritent l'attention, car elles portent des règles métier et non de simples commodités d'écriture. La cascade géographique, le calcul du taux de complétude et les questions complémentaires sont des cas \textbf{inclus} dans « déposer une plainte » : ils ne s'exécutent jamais séparément, et le dépôt ne peut aboutir sans eux. De la même façon, « obtenir une proposition de procès-verbal » est inclus dans « dresser un procès-verbal », et non offert comme cas autonome — traduction, dans le modèle, du principe selon lequel l'IA n'intervient qu'à l'intérieur d'un acte dont l'enquêteur reste responsable. Seule la dictée vocale constitue une \textbf{extension} : elle enrichit le dépôt sans lui être nécessaire.
 
 \subsubsection{Diagramme de classes}
 Le diagramme de classes constitue l'élément central de la modélisation orientée objet. Il décrit comment les entités du domaine interagissent pour concrétiser les différents cas d'utilisation.
@@ -176,7 +213,7 @@ La figure~\ref{fig:sequence} illustre la séquence du dépôt d'une plainte, dep
 Le dépôt de plainte est implémenté comme un \textbf{formulaire séquentiel} en 5 écrans enchaînés :
 
 \begin{enumerate}
-    \item \textbf{Nature de l'infraction} — choix parmi les natures gérées (vol simple, vol avec violence, agression physique, escroquerie, harcèlement, dégradation de biens, accident de la route, autre) et cascade géographique Région / Département / Arrondissement / Quartier. Le \textbf{commissariat compétent} est déduit automatiquement du quartier des faits.
+    \item \textbf{Nature de l'infraction} — choix parmi les natures gérées : vol simple, vol avec violence, agression physique, escroquerie, harcèlement, dégradation de biens, accident de la route, autre. Le \textbf{cumul est possible}, une même affaire pouvant relever de plusieurs qualifications — une escroquerie doublée d'un abus de confiance, par exemple. Suit la cascade géographique Région / Département / Arrondissement / Quartier, dont le \textbf{commissariat compétent} est déduit automatiquement.
     \item \textbf{Déclaration des faits} — récit libre du plaignant, avec dictée vocale optionnelle s'appuyant sur la Web Speech API du navigateur.
     \item \textbf{Identité du mis en cause} — renseignée lorsqu'elle est connue, facultative dans le cas contraire.
     \item \textbf{Questions complémentaires} — un jeu de questions propre à la nature de l'infraction est proposé ; celles dont la réponse figure déjà dans le récit des faits sont automatiquement écartées, afin de ne pas faire répéter le plaignant.
@@ -213,7 +250,7 @@ Commissariat          & Référentiel des commissariats et de leur ressort terri
 \hline
 Profil                & Citoyens et personnels, porteurs du rôle applicatif               & Par rôle \\
 \hline
-Plainte               & Dossiers déposés et leur cycle de vie complet                     & Plaignant ou commissariat \\
+Plainte               & Dossiers déposés et leur cycle de vie complet ; porte une ou plusieurs qualifications et un ou plusieurs préjudices & Plaignant ou commissariat \\
 \hline
 Pièce jointe          & Métadonnées des documents et photos ; le fichier lui-même réside dans le dépôt d'objets & Par dossier \\
 \hline
