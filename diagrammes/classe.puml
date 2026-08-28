@@ -18,19 +18,19 @@ skinparam shadowing false
 skinparam defaultFontName Helvetica
 skinparam defaultFontSize 11
 skinparam linetype ortho
-skinparam ArrowColor #24405E
+skinparam ArrowColor #006432
 
 skinparam class {
-  BorderColor #24405E
+  BorderColor #006432
   BackgroundColor #FFFFFF
-  FontColor #14243A
+  FontColor #0B3A22
   AttributeFontSize 10
 }
 hide methods
 hide circle
 
 ' ── Referentiel ──────────────────────────────────────────────
-class Commissariat #EDF2FA {
+class Commissariat #E4F0E9 {
   + id : UUID
   --
   nom : Text
@@ -42,7 +42,7 @@ class Commissariat #EDF2FA {
 }
 
 ' ── Utilisateurs ─────────────────────────────────────────────
-class Profil #EDF2FA {
+class Profil #E4F0E9 {
   + id : UUID
   --
   role : RoleUtilisateur
@@ -96,7 +96,7 @@ note bottom of PieceJointe
   designe par storage_path.
 end note
 
-class ProcesVerbal #F1FBF4 {
+class ProcesVerbal #E4F0E9 {
   + id : UUID
   --
   contenu : Text

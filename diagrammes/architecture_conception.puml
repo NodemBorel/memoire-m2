@@ -10,20 +10,20 @@ skinparam backgroundColor #FFFFFF
 skinparam shadowing false
 skinparam defaultFontName Helvetica
 skinparam defaultFontSize 12
-skinparam ArrowColor #24405E
+skinparam ArrowColor #006432
 skinparam ArrowThickness 1.3
 skinparam nodesep 30
 skinparam ranksep 40
 skinparam linetype ortho
 
 skinparam rectangle {
-  BorderColor #24405E
+  BorderColor #006432
   BorderThickness 1.4
-  FontColor #14243A
+  FontColor #0B3A22
   RoundCorner 10
 }
 
-rectangle "MODULES DE SAISIE" as G1 #F7F9FC {
+rectangle "MODULES DE SAISIE" as G1 #F3F9F5 {
   rectangle "**Saisie guidée**\n<size:10>Parcours en 5 étapes</size>" as M1 #FFFFFF
   rectangle "**Analyse de la déclaration**\n<size:10>Taux de complétude</size>\n<size:10>Questionnaire adaptatif</size>" as M2 #FFFFFF
   rectangle "**Référentiel territorial**\n<size:10>Cascade géographique</size>\n<size:10>Commissariat compétent</size>" as M3 #FFFFFF
@@ -31,13 +31,13 @@ rectangle "MODULES DE SAISIE" as G1 #F7F9FC {
 
 rectangle "**DOSSIER DE PLAINTE**\n<size:10>Noyau du modèle : état, qualifications,</size>\n<size:10>préjudices, pièces, intervenants</size>" as CORE #FFF7E8
 
-rectangle "MODULES D'INSTRUCTION" as G2 #F7F9FC {
-  rectangle "**Cotation**\n<size:10>Affectation et priorité</size>" as M4 #FFFFFF
+rectangle "MODULES D'INSTRUCTION" as G2 #F3F9F5 {
+  rectangle "**Cotation**\n<size:10>Désignation de l'enquêteur</size>\n<size:10>et de la priorité</size>" as M4 #FFFFFF
   rectangle "**Étapier**\n<size:10>Cycle de vie et actes requis</size>" as M5 #FFFFFF
   rectangle "**Rédaction assistée**\n<size:10>Proposition de procès-verbal</size>" as M6 #FFFFFF
 }
 
-rectangle "MODULES TRANSVERSES" as G3 #F7F9FC {
+rectangle "MODULES TRANSVERSES" as G3 #F3F9F5 {
   rectangle "**Contrôle d'accès**\n<size:10>Identification et cloisonnement</size>" as M7 #FFFFFF
   rectangle "**Production de documents**\n<size:10>Récépissé, convocation, PV</size>" as M8 #FFFFFF
   rectangle "**Traçabilité**\n<size:10>Journal d'audit horodaté</size>" as M9 #FFFFFF
@@ -57,11 +57,5 @@ M6  --> M8
 M7 --> CORE : <size:10>filtre</size>
 CORE --> M9 : <size:10>alimente</size>
 M9 --> M10
-
-note right of M6
-  La proposition n'est jamais
-  enregistrée sans validation
-  de l'enquêteur.
-end note
 
 @enduml
