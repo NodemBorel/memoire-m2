@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.8)  28 AUG 2026 20:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.8)  11 SEP 2026 09:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1478,7 +1478,7 @@ Package rerunfilecheck Info: File `soutenance.out' has not changed.
 Here is how much of TeX's memory you used:
  29474 strings out of 467509
  587486 string characters out of 5409260
- 978179 words of memory out of 5000000
+ 978171 words of memory out of 5000000
  58026 multiletter control sequences out of 15000+600000
  701116 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1490,7 +1490,7 @@ C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss9.pfb><C:
 :/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso9.pfb><C:
 /Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/
 Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb>
-Output written on soutenance.pdf (22 pages, 1056748 bytes).
+Output written on soutenance.pdf (22 pages, 1057127 bytes).
 PDF statistics:
  865 PDF objects out of 1000 (max. 8388607)
  62 named destinations out of 1000 (max. 500000)
