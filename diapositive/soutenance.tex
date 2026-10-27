@@ -182,7 +182,7 @@ M. NDJON MBOG THIERRY}
   4 & Rédaction manuscrite longue et répétitive & Temps soustrait à l'enquête \\
   \bottomrule
 \end{tabularx}
-\aretenir{Trois difficultés sur quatre portent sur la qualité de la déclaration.}
+\aretenir{Trois difficultés sur quatre portent sur la qualité et la valeur juridique de la déclaration, plutôt que sur la lenteur du circuit.}
 \end{frame}
 
 \begin{frame}{Ce qui existe ailleurs, et pourquoi développer}
@@ -206,7 +206,7 @@ M. NDJON MBOG THIERRY}
 \end{tabularx}
 \vspace{4pt}
 \small Tous s'arrêtent au dépôt : ni cotation, ni auditions, ni procès-verbaux. Aucun ne traite nos constats.
-\aretenir{D'où le choix de développer, en gardant le dispositif français comme piste d'évolution.}
+\aretenir{Les dispositifs existants sont restreints, et aucun ne prend en charge la suite de la chaîne au-delà du dépôt.}
 \end{frame}
 
 %####################################################
@@ -317,9 +317,9 @@ M. NDJON MBOG THIERRY}
 
 \begin{frame}{Rédaction assistée du procès-verbal}
   \begin{itemize}
-    \item Projet de PV au format du template institutionnel, en-tête compris;
+    \item Proposition rédigée à partir de la déclaration, présentée dans un éditeur;
     \item Appel exclusivement côté serveur : la clé d'API ne quitte jamais le backend;
-    \item Chaque correction de l'enquêteur est horodatée et conservée.
+    \item L'enquêteur corrige et valide avant signature; rien n'est enregistré sans lui.
   \end{itemize}
 \vspace{2pt}
 \begin{figure}[htp]
@@ -374,8 +374,8 @@ M. NDJON MBOG THIERRY}
     \begin{column}{0.45\textwidth}
         \begin{block}{Ce qui a tranché}
             \begin{itemize}
-                \item \textbf{Flask} :  Offre un cadre léger, flexible et rapide pour développer des applications web ou des API en Python. Il s'intègre facilement aux services d'API tels que l'API de Grok.;
-                \item \textbf{Groq} : gratuit et très rapide;
+                \item \textbf{Flask} : la continuité de langage avec l'IA. Le client Python de Groq s'intègre au backend sans passerelle ni service intermédiaire;
+                \item \textbf{Groq} : palier gratuit, inférence rapide, poids ouverts de Llama;
                 \item \textbf{PostgreSQL} : les \emph{données} --- comptes, dossiers, historique;
                 \item \textbf{Supabase Storage} : les \emph{fichiers} --- pièces jointes, procès-verbaux, convocations.
             \end{itemize}
@@ -387,6 +387,26 @@ M. NDJON MBOG THIERRY}
 %####################################################
 
 \section{RESULTATS}
+
+\begin{frame}{La recette : quatre familles de scénarios}
+\small Jeu de dossiers de test couvrant les huit natures d'infraction gérées.
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}l@{}}
+  \toprule
+  \textbf{Famille} & \textbf{Scénarios} & \textbf{Verdict} \\
+  \midrule
+  Fonctionnels & Dépôt complet sur les cinq étapes, cascade géographique, cotation avec priorité & Conformes \\
+  \addlinespace
+  Intelligence artificielle & Rédaction d'un PV depuis la déclaration & Conforme \\
+  \addlinespace
+  Sécurité & Dossier tiers consulté par un non-plaignant, appel sans jeton valide & Refusés \\
+  \addlinespace
+  Documents et qualité & PDF du récépissé et du PV, QR code & Conformes \\
+  & Fidélité de la transcription vocale & Partielle \\
+  \bottomrule
+\end{tabularx}
+\aretenir{Pour les tests de sécurité, c'est le refus qui constitue le succès.}
+\end{frame}
 
 \begin{frame}[c]{Démonstration}
 \begin{figure}[htp]
@@ -419,6 +439,7 @@ M. NDJON MBOG THIERRY}
   \item \textbf{Limites : }
      \begin{itemize}
   \item Transcription vocale imparfaite, relecture obligatoire;
+  \item Aucun test de charge, faute d'environnement de production représentatif;
   \item Mesures issues de la recette, non de l'exploitation réelle.
   \end{itemize}
 \item \textbf{Perspectives : }
